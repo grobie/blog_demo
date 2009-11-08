@@ -1,0 +1,12 @@
+<% @posts.each do |post| %>
+  <h2><%= link_to post.title, post %></h2>
+  <p>
+    geschrieben von <%=h post.author %> am <%= post.created_at.to_s(:short) %>
+    (<%= link_to pluralize(post.comments.size, "Kommentar", "Kommentare"), post_url(post, :anchor => "comments") %>)
+  </p>
+  <p><%=h post.body %></p>
+<% end %>
+
+<br />
+
+<%= link_to 'New post', new_post_path %>
