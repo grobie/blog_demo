@@ -1,9 +1,9 @@
 <% @posts.each do |post| %>
-  <h2><%= link_to post.title, post %></h2>
-  <p>
+  <h2 class="post"><%= link_to post.title, post %></h2>
+  <span>
     geschrieben von <%=h post.author %> am <%= post.created_at.to_s(:short) %>
     (<%= link_to pluralize(post.comments.size, "Kommentar", "Kommentare"), post_url(post, :anchor => "comments") %>)
-  </p>
+  </span>
   <p><%=h post.body %></p>
 <% end %>
 

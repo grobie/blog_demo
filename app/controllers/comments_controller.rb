@@ -1,14 +1,9 @@
 class CommentsController < ApplicationController
   
   def create
-    @comment = Comment.new(params[:comment])
-    
-    if @comment.save
-      redirect_to @comment.post
-    else
-      flash[:notice] = "Bitte alle benötigten Felder ausfüllen!"
-      render :template => "posts/show", :layout => 'posts'
-    end
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.create(params[:comment])
+    redirect_to @post
   end
   
 end

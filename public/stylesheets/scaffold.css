@@ -1,4 +1,4 @@
-body { background-color: #3366FF; color: #333; }
+body { background-color: #4B7399; color: #333; }
 
 div.wrapper {
   width: 800px;
@@ -35,8 +35,8 @@ pre {
   font-size: 11px;
 }
 
-a { color: #002EB8; text-decoration: underline; }
-a:visited { color: #002EB8; }
+a { color: #0000FF; text-decoration: underline; }
+a:visited { color: #0000FF; }
 a:hover { text-decoration: none; }
 
 .fieldWithErrors {
