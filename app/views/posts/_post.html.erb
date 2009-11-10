@@ -1,0 +1,3 @@
+<h2><%= link_to post.title, post %></h2>
+<div>geschrieben von <%=h post.author %> am <%= post.created_at.to_s(:short) %></div>
+<%= simple_format h(post.body) %>

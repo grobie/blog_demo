@@ -1,0 +1,3 @@
+<p><strong><%= h comment.author %></strong> kommentierte am <%= comment.created_at.to_s(:short) %></p>
+<p><%= simple_format h(comment.content) %></p>
+<hr />

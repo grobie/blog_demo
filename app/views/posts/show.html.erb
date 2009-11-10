@@ -1,11 +1,22 @@
-<h2 class="post"><%=h @post.title %></h2>
-<span>geschrieben von <%=h @post.author %> am <%= @post.created_at.to_s(:short) %></span>
+<%= render :partial => @post %>
 
-<p>
-  <%= simple_format h(@post.body) %>
-</p>
+<h3 id="comments"><%= pluralize @post.comments.size, "Kommentar", "Kommentare" %></h3>
+<%= render :partial => @post.comments %>
 
-<%= render :partial => "comments/comments" %>
+<% form_for :comment, :url => post_comments_url(@post) do |f| %>
+  <p>
+    <%= f.label :author, "Autor" %><br />
+    <%= f.text_field :author %>
+  </p>
+  <p>
+    <%= f.label :content, "Kommentar" %><br />
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.submit "abschicken" %>
+  </p>
+<% end %>
+
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
